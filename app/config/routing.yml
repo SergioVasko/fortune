@@ -1,0 +1,6 @@
+submit_quote:
+    path: /api/quotes
+    methods:
+        - POST
+    defaults:
+        _controller: FortuneApplicationBundle:Quote:submit
