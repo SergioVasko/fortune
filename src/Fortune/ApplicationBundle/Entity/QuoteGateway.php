@@ -3,17 +3,20 @@
 
 namespace Fortune\ApplicationBundle\Entity;
 
-class QuoteGateway
+use Doctrine\ORM\EntityRepository;
+
+class QuoteGateway extends EntityRepository
 {
     private $filename;
-
+/*
     public function __construct($filename)
     {
         $this->filename = $filename;
     }
-
+*/
     public function insert($content)
     {
+        /*
         $content = trim($content);
         $line = $content."\n";
         file_put_contents($this->filename, $line, FILE_APPEND);
@@ -21,8 +24,16 @@ class QuoteGateway
         $lineNumber = count($lines) - 1;
 
         return new Quote($lineNumber, $content);
-    }
+        */
+        $entityManager = $this->getEntityManager();
 
+        $quote = Quote::fromContent($content);
+        $entityManager->persist($quote);
+        $entityManager->flush();
+
+        return $quote;
+    }
+/*
     public function findAll()
     {
         $contents = file($this->filename);
@@ -32,4 +43,5 @@ class QuoteGateway
 
         return $quotes;
     }
+*/
 }

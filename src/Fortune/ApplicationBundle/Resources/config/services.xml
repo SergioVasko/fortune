@@ -11,6 +11,8 @@
         </service>
         <service id="fortune_application.quote_gateway"
                  class="Fortune\ApplicationBundle\Entity\QuoteGateway"
+                 factory-service="doctrine"
+                 factory-method="getRepository"
                 >
             <argument>D:\webservers\home\symfony\gnugat\fortune\src\Fortune\ApplicationBundle\Tests\fortune_database_test.txt</argument>
         </service>
