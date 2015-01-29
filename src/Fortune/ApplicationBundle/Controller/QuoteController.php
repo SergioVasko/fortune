@@ -12,8 +12,9 @@ class QuoteController extends Controller
     public function submitAction(Request $request)
     {
         $quoteRepository = $this->container->get('fortune_application.quote_repository');
-        $postedContent = $request->getContent();
-        $postedValues = json_decode($postedContent, true);
+        //$postedContent = $request->getContent();
+        //$postedValues = json_decode($postedContent, true);
+        $postedValues = $request->request->all();
 
         if (empty($postedValues['content'])) {
             $answer = array('message' => 'Missing required parameter: content');
