@@ -1,5 +1,4 @@
 <?php
-// File: src/Fortune/ApplicationBundle/Controller/QuoteController.php
 
 namespace Fortune\ApplicationBundle\Controller;
 

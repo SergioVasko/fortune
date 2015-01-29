@@ -1,5 +1,4 @@
 <?php
-// File: src/Fortune/ApplicationBundle/DependencyInjection/FortuneApplicationExtension.php
 
 namespace Fortune\ApplicationBundle\DependencyInjection;
 

@@ -1,5 +1,4 @@
 <?php
-// File: src/Fortune/ApplicationBundle/Entity/Quote.php
 
 namespace Fortune\ApplicationBundle\Entity;
 

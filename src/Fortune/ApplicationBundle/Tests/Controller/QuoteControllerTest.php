@@ -1,5 +1,4 @@
 <?php
-// File: src/Fortune/ApplicationBundle/Tests/Controller/QuoteControllerTest.php
 
 namespace Fortune\ApplicationBundle\Tests\Controller;
 
