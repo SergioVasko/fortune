@@ -6,14 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class QuoteController extends Controller
 {
+    /**
+     * @Route("/api/quotes", methods={"POST"})
+     */
     public function submitAction(Request $request)
     {
         $quoteRepository = $this->container->get('fortune_application.quote_repository');
-        //$postedContent = $request->getContent();
-        //$postedValues = json_decode($postedContent, true);
         $postedValues = $request->request->all();
 
         if (empty($postedValues['content'])) {
@@ -27,6 +29,9 @@ class QuoteController extends Controller
         return new JsonResponse($quote, Response::HTTP_CREATED);
     }
 
+    /**
+     * @Route("/api/quotes", methods={"GET"})
+     */
     public function listAction(Request $request)
     {
         $quoteRepository = $this->container->get('fortune_application.quote_repository');
